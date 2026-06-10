@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", system-ui, sans-serif;
+  --color-brand-900: #0f2744;
+  --color-brand-800: #1e3a5f;
+  --color-brand-700: #2a4f7a;
+  --color-brand-600: #3d6a9e;
+  --color-accent-gold: #fbbf24;
+  --color-accent-green: #22c55e;
+  --color-accent-red: #ef4444;
+  --color-accent-orange: #f97316;
+  --color-surface: #f4f6f9;
+  --color-card: #ffffff;
+}
+
+:root {
+  --nav-bar-height: 4.25rem;
+  --nav-safe-extra: env(safe-area-inset-bottom, 0px);
+  --nav-total-height: calc(var(--nav-bar-height) + var(--nav-safe-extra));
+  --content-sheet-overlap: 1.25rem;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: var(--font-sans);
+  background: var(--color-surface);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* فاصله زیر محتوای اسکرول — هم‌اندازه نوار پایین */
+.pb-nav-content {
+  padding-bottom: calc(var(--nav-total-height) + 1rem);
+}
+
+/* padding داخلی خود نوار پایین برای home indicator */
+.pb-nav-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* برگه محتوای سفید زیر هدر */
+.content-sheet {
+  margin-top: calc(-1 * var(--content-sheet-overlap));
+  border-radius: 1.75rem 1.75rem 0 0;
+  background: var(--color-surface);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -8px 32px rgba(15, 39, 68, 0.08);
+  min-height: calc(100dvh - 9rem);
+}

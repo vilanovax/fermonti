@@ -1,0 +1,8 @@
+{
+  "app": "your-app-id-on-liara",
+  "platform": "react",
+  "port": 4173,
+  "build": {
+    "location": "iran"
+  }
+}
